@@ -21,6 +21,7 @@ empleando únicamente una cámara web y la **CPU**.
 
 .
 ├─ capture\_samples.py      # Paso 1 – Grabación automática
+
 ├─ normalize\_samples.py    # Paso 2 – Interpolación a 15 frames
 ├─ create\_keypoints.py     # Paso 3 – Extracción de 1 662 key-points
 ├─ prepare\_dataset.py      # Paso 4 – Split estratificado 70/15/15
