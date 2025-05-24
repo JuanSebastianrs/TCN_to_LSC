@@ -23,17 +23,29 @@ empleando únicamente una cámara web y la **CPU**.
 ├─ capture\_samples.py      # Paso 1 – Grabación automática
 
 ├─ normalize\_samples.py    # Paso 2 – Interpolación a 15 frames
+
 ├─ create\_keypoints.py     # Paso 3 – Extracción de 1 662 key-points
+
 ├─ prepare\_dataset.py      # Paso 4 – Split estratificado 70/15/15
+
 ├─ model.py                # Paso 5 – Red TCN + Attention
+
 ├─ training\_model.py       # Paso 6 – Entrenamiento
+
 ├─ confusion\_matrix.py     # Paso 7 – Métricas y gráficas
+
 ├─ plot\_pr\_curves.py       # Extensión: curvas PR
+
 ├─ latent\_tsne\_umap.py     # Extensión: t-SNE / UMAP
+
 ├─ main.py                 # Paso 8 – GUI PyQt5 en tiempo real
+
 ├─ text\_to\_speech.py       # Paso 9 – Síntesis de voz
+
 ├─ data/                   # Key-points y splits serializados
+
 ├─ frame\_actions/          # Frames JPG por gesto
+
 └─ models/                 # Modelo *.keras* y words.json
 
 ````
