@@ -139,7 +139,8 @@ de código abierto y totalmente funcional en CPU.
 
 ## 📚 Créditos
 
-**Autor:** * Juan Sebastian Rodriguez Salazar y Johan Santiago Caro Valencia / Grupo – Visión Computacional, 2025-I*
+**Autores:**  Juan Sebastian Rodriguez Salazar y Johan Santiago Caro Valencia / Grupo – Visión Computacional, 2025-I
+
 Agradecimientos al repositorio base [@ronvidev](https://github.com/ronvidev/modelo_lstm_lsp)
 por la lógica original de captura.
 
