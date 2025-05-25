@@ -1,17 +1,55 @@
-```markdown
-# Traductor **LSC → Voz** en Tiempo Real  🎙️🤟
+# 🎙️🤟 Traductor LSC → Voz en Tiempo Real
 
 Sistema completo que **detecta, reconoce y vocaliza**  
 diez gestos básicos de la **Lengua de Señas Colombiana (LSC)**  
 empleando únicamente una cámara web y la **CPU**.
 
-| Conjunto | Accuracy | Macro-F<sub>1</sub> |
-|----------|----------|---------------------|
-| **Test** | 0.981    | 0.981              |
-
 <p align="center">
   <img src="Figures/demo_gui.gif" width="600">
 </p>
+
+---
+
+## 📊 Resultados
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left;">Conjunto</th>
+      <th style="text-align:center;">Accuracy</th>
+      <th style="text-align:center;">Macro-F<sub>1</sub></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Test</strong></td>
+      <td style="text-align:center;">0.981</td>
+      <td style="text-align:center;">0.981</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## 🗂️ Estructura del repositorio
+
+```plaintext
+.
+├─ capture_samples.py      # Paso 1 – Grabación automática
+├─ normalize_samples.py    # Paso 2 – Interpolación a 15 frames
+├─ create_keypoints.py     # Paso 3 – Extracción de 1 662 key-points
+├─ prepare_dataset.py      # Paso 4 – Split estratificado 70/15/15
+├─ model.py                # Paso 5 – Red TCN + Attention
+├─ training_model.py       # Paso 6 – Entrenamiento
+├─ confusion_matrix.py     # Paso 7 – Métricas y gráficas
+├─ plot_pr_curves.py       # Extensión: curvas PR
+├─ latent_tsne_umap.py     # Extensión: t-SNE / UMAP
+├─ main.py                 # Paso 8 – GUI PyQt5 en tiempo real
+├─ text_to_speech.py       # Paso 9 – Síntesis de voz
+├─ data/                   # Key-points y splits serializados
+├─ frame_actions/          # Frames JPG por gesto
+└─ models/                 # Modelo *.keras* y words.json
+
 
 ---
 
@@ -116,15 +154,45 @@ python latent_tsne_umap.py          # mapa t-SNE / UMAP
 
 ---
 
-## ✨ Componentes clave
+<h2>✨ Componentes clave del sistema</h2>
 
-| Módulo                   | Tecnología          | Rol principal                                 |
-| ------------------------ | ------------------- | --------------------------------------------- |
-| Detección / Tracking     | MediaPipe           | 1 662 landmarks (pose + face + hands)         |
-| Normalización temporal   | OpenCV              | Interpolación / muestreo a 15 frames          |
-| Clasificación secuencial | **TCN + Attention** | RF 31 frames, 3.5 M parámetros, 98 % accuracy |
-| Interfaz gráfica         | PyQt5               | Webcam, overlay de key-points, texto dinámico |
-| Síntesis de voz          | gTTS + pygame       | Locución en español con baja latencia         |
+<table>
+  <thead>
+    <tr>
+      <th>Módulo</th>
+      <th>Tecnología</th>
+      <th>Rol principal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🧍‍♂️ Detección / Tracking</td>
+      <td>MediaPipe</td>
+      <td>1 662 landmarks (pose + face + hands)</td>
+    </tr>
+    <tr>
+      <td>⏱️ Normalización temporal</td>
+      <td>OpenCV</td>
+      <td>Interpolación / muestreo a 15 frames</td>
+    </tr>
+    <tr>
+      <td>🧠 Clasificación secuencial</td>
+      <td><strong>TCN + Attention</strong></td>
+      <td>RF 31 frames, 3.5 M parámetros, 98% accuracy</td>
+    </tr>
+    <tr>
+      <td>🖥️ Interfaz gráfica</td>
+      <td>PyQt5</td>
+      <td>Webcam, overlay de keypoints, texto dinámico</td>
+    </tr>
+    <tr>
+      <td>🔊 Síntesis de voz</td>
+      <td>gTTS + pygame</td>
+      <td>Locución en español con baja latencia</td>
+    </tr>
+  </tbody>
+</table>
+
 
 ---
 
