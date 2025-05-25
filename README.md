@@ -205,6 +205,63 @@ de código abierto y totalmente funcional en CPU.
 
 ---
 
+<h2>🧾 Palabras entrenadas en LSC</h2>
+
+<p>A continuación se muestran las <strong>10 palabras</strong> reconocidas por el sistema, junto a su representación en la <strong>Lengua de Señas Colombiana (LSC)</strong>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Palabra</th>
+      <th>Imagen en LSC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>hola</strong></td>
+      <td><img src="Figures/hola.png" width="180"/></td>
+    </tr>
+    <tr>
+      <td><strong>adios</strong></td>
+      <td><img src="Figures/adios.png" width="180"/></td>
+    </tr>
+    <tr>
+      <td><strong>bien</strong></td>
+      <td><img src="Figures/bien.png" width="180"/></td>
+    </tr>
+    <tr>
+      <td><strong>mal</strong></td>
+      <td><img src="Figures/mal.png" width="180"/></td>
+    </tr>
+    <tr>
+      <td><strong>mas_o_menos</strong></td>
+      <td><img src="Figures/mas_o_menos.png" width="180"/></td>
+    </tr>
+    <tr>
+      <td><strong>lo_siento</strong></td>
+      <td><img src="Figures/lo_siento.png" width="180"/></td>
+    </tr>
+    <tr>
+      <td><strong>como_estas</strong></td>
+      <td><img src="Figures/como_estas.png" width="180"/></td>
+    </tr>
+    <tr>
+      <td><strong>feliz_dia</strong></td>
+      <td><img src="Figures/feliz_dia.png" width="180"/></td>
+    </tr>
+    <tr>
+      <td><strong>familia</strong></td>
+      <td><img src="Figures/familia.png" width="180"/></td>
+    </tr>
+    <tr>
+      <td><strong>Papa</strong></td>
+      <td><img src="Figures/Papa.png" width="180"/></td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
 ## 📚 Créditos
 
 **Autores:**  Juan Sebastian Rodriguez Salazar y Johan Santiago Caro Valencia / Grupo – Visión Computacional, 2025-I
