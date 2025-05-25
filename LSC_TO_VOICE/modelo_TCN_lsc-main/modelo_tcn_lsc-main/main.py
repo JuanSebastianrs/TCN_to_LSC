@@ -39,7 +39,7 @@ class VideoRecorder(QMainWindow):
     def __init__(self):
         super().__init__()
         try:
-            loadUi('modelo_lstm_lsp-main\mainwindow.ui', self)
+            loadUi('LSC_TO_VOICE\modelo_TCN_lsc-main\modelo_tcn_lsc-main\mainwindow.ui', self)
         except Exception:
             QMessageBox.critical(self, "UI", "No se pudo cargar mainwindow.ui")
             sys.exit(1)

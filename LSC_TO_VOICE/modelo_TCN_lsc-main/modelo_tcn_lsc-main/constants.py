@@ -7,7 +7,7 @@ LENGTH_KEYPOINTS = 1662
 MODEL_FRAMES = 15
 
 # PATHS
-ROOT_PATH = os.getcwd()
+ROOT_PATH = os.path.dirname(os.path.abspath(__file__))	
 FRAME_ACTIONS_PATH = os.path.join(ROOT_PATH, "frame_actions")
 DATA_PATH = os.path.join(ROOT_PATH, "data")
 DATA_JSON_PATH = os.path.join(DATA_PATH, "data.json")
