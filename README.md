@@ -193,43 +193,43 @@ de código abierto y totalmente funcional en CPU.
   <tbody>
     <tr>
       <td><strong>hola</strong></td>
-      <td><img src="LenguajeSenas-to-Voz/Data/Figures/Hola.png" width="180"/></td>
+      <td><img src=https://github.com/JuanSebastianrs/TCN_to_LSC/blob/main/Data/Figures/Hola.png" width="180"/></td>
     </tr>
     <tr>
       <td><strong>adios</strong></td>
-      <td><img src="LenguajeSenas-to-Voz/Figures/Adios.png" width="180"/></td>
+      <td><img src="https://github.com/JuanSebastianrs/TCN_to_LSC/blob/main/Data/Figures/Adios.png" width="180"/></td>
     </tr>
     <tr>
       <td><strong>bien</strong></td>
-      <td><img src="LenguajeSenas-to-Voz/Data/Figures/Bien.png" width="180"/></td>
+      <td><img src="https://github.com/JuanSebastianrs/TCN_to_LSC/blob/main/Data/Figures/Bien.png" width="180"/></td>
     </tr>
     <tr>
       <td><strong>mal</strong></td>
-      <td><img src="LenguajeSenas-to-Voz/Data/Figures/Mal.png" width="180"/></td>
+      <td><img src="https://github.com/JuanSebastianrs/TCN_to_LSC/blob/main/Data/Figures/Mal.png" width="180"/></td>
     </tr>
     <tr>
       <td><strong>mas_o_menos</strong></td>
-      <td><img src="LenguajeSenas-to-Voz/Data/Figures/MasOMenos.png" width="180"/></td>
+      <td><img src="https://github.com/JuanSebastianrs/TCN_to_LSC/blob/main/Data/Figures/MasOMenos.png" width="180"/></td>
     </tr>
     <tr>
       <td><strong>lo_siento</strong></td>
-      <td><img src="LenguajeSenas-to-Voz/Data/Figures/LoSiento.png" width="180"/></td>
+      <td><img src="https://github.com/JuanSebastianrs/TCN_to_LSC/blob/main/Data/Figures/LoSiento.png" width="180"/></td>
     </tr>
     <tr>
       <td><strong>como_estas</strong></td>
-      <td><img src="LenguajeSenas-to-Voz/Data/Figures/ComoEstas.png" width="180"/></td>
+      <td><img src="https://github.com/JuanSebastianrs/TCN_to_LSC/blob/main/Data/Figures/ComoEstas.png" width="180"/></td>
     </tr>
     <tr>
       <td><strong>feliz_dia</strong></td>
-      <td><img src="LenguajeSenas-to-Voz/Data/Figures/FelizDia.png" width="180"/></td>
+      <td><img src="https://github.com/JuanSebastianrs/TCN_to_LSC/blob/main/Data/Figures/FelizDia.png" width="180"/></td>
     </tr>
     <tr>
       <td><strong>familia</strong></td>
-      <td><img src="LenguajeSenas-to-Voz/Data/Figures/Familia.png" width="180"/></td>
+      <td><img src="https://github.com/JuanSebastianrs/TCN_to_LSC/blob/main/Data/Figures/Familia.png" width="180"/></td>
     </tr>
     <tr>
       <td><strong>Papa</strong></td>
-      <td><img src="LenguajeSenas-to-Voz/Data/Figures/Papa.png" width="180"/></td>
+      <td><img src="https://github.com/JuanSebastianrs/TCN_to_LSC/blob/main/Data/Figures/Papa.png" width="180"/></td>
     </tr>
   </tbody>
 </table>
