@@ -33,10 +33,12 @@ empleando únicamente una cámara web y la **CPU**.
 
 
 ### Matriz de Confusión
-![Matriz de Confusión](LenguajeSenas-to-Voz/Data/Figures/Figure_1.png)
+![Matriz de Confusión]([LenguajeSenas-to-Voz/Data/Figures/Figure_1.png](https://github.com/JuanSebastianrs/TCN_to_LSC/blob/main/Data/Figures/Figure_1.png
+))
 
 ### Curvas Precision–Recall
-![Curvas Precision–Recall](LenguajeSenas-to-Voz/Data/Figures/Figure_2.png)
+![Curvas Precision–Recall]((https://github.com/JuanSebastianrs/TCN_to_LSC/blob/main/Data/Figures/Figure_2.png
+))
 
 ### Visualización t-SNE del espacio latente
 ![t-SNE](LenguajeSenas-to-Voz/Data/Figures/Figure_3.png)
