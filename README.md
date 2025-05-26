@@ -33,7 +33,8 @@ empleando únicamente una cámara web y la **CPU**.
 
 
 ### Matriz de Confusión
-![Matriz de Confusión]([LenguajeSenas-to-Voz/Data/Figures/Figure_1.png])
+<img src="https://raw.githubusercontent.com/JuanSebastianrs/TCN_to_LSC/main/Data/Figures/Figure_1.png" width="500"/>
+
 
 ### Curvas Precision–Recall
 ![Curvas Precision–Recall](LenguajeSenas-to-Voz/Data/Figures/Figure_2.png)
