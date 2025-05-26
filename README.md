@@ -37,10 +37,10 @@ empleando únicamente una cámara web y la **CPU**.
 
 
 ### Curvas Precision–Recall
-![Curvas Precision–Recall](LenguajeSenas-to-Voz/Data/Figures/Figure_2.png)
+<img src="https://raw.githubusercontent.com/JuanSebastianrs/TCN_to_LSC/main/Data/Figures/Figure_2.png" width="800"/>
 
 ### Visualización t-SNE del espacio latente
-![t-SNE](LenguajeSenas-to-Voz/Data/Figures/Figure_3.png)
+<img src="https://raw.githubusercontent.com/JuanSebastianrs/TCN_to_LSC/main/Data/Figures/Figure_3.png" width="800"/>
 
 ## 🗂️ Estructura del repositorio
 
