@@ -193,7 +193,7 @@ de código abierto y totalmente funcional en CPU.
   <tbody>
     <tr>
       <td><strong>hola</strong></td>
-      <td><img src=https://github.com/JuanSebastianrs/TCN_to_LSC/blob/main/Data/Figures/Hola.png" width="180"/></td>
+      <td><img src="https://github.com/JuanSebastianrs/TCN_to_LSC/blob/main/Data/Figures/Hola.png" width="180"/></td>
     </tr>
     <tr>
       <td><strong>adios</strong></td>
