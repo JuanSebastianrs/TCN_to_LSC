@@ -33,7 +33,7 @@ empleando únicamente una cámara web y la **CPU**.
 
 
 ### Matriz de Confusión
-<img src="https://raw.githubusercontent.com/JuanSebastianrs/TCN_to_LSC/main/Data/Figures/Figure_1.png" width="500"/>
+<img src="https://raw.githubusercontent.com/JuanSebastianrs/TCN_to_LSC/main/Data/Figures/Figure_1.png" width="800"/>
 
 
 ### Curvas Precision–Recall
