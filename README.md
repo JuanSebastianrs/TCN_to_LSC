@@ -1,247 +1,80 @@
-# 🎙️🤟 Traductor LSC → Voz en Tiempo Real
+# Colombian Sign Language to Speech
 
-Sistema completo que **detecta, reconoce y vocaliza**  
-diez gestos básicos de la **Lengua de Señas Colombiana (LSC)**  
-empleando únicamente una cámara web y la **CPU**.
+**Ten isolated LSC signs, recognized from webcam video using MediaPipe and a Temporal Convolutional Network with attention.**
 
-<p align="center">
-  <img src="Figures/demo_gui.gif" width="600">
-</p>
+An academic computer-vision project by **Juan Sebastián Rodríguez Salazar and Johan Santiago Caro Valencia**, Universidad del Rosario, 2025-I.
 
----
+[Project report](Vision_final.pdf) · [Model architecture](src/model.py) · [Desktop launcher](run_pipeline.py)
 
-## 📊 Resultados
+## What it demonstrates
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left;">Conjunto</th>
-      <th style="text-align:center;">Accuracy</th>
-      <th style="text-align:center;">Macro-F<sub>1</sub></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Test</strong></td>
-      <td style="text-align:center;">0.981</td>
-      <td style="text-align:center;">0.981</td>
-    </tr>
-  </tbody>
-</table>
+- Capture and temporal normalization of gesture sequences.
+- Extraction of 1,662 pose, face and hand keypoints with MediaPipe.
+- TCN classification with attention over 15-frame sequences.
+- A PyQt5 webcam interface and Spanish speech output using gTTS.
+- Evaluation through a confusion matrix, precision–recall curves and latent-space visualization.
 
----
+This is a recognizer for a fixed vocabulary of isolated signs. It does not implement unrestricted continuous sign-language translation.
 
+## Reported results
 
-### Matriz de Confusión
-<img src="https://raw.githubusercontent.com/JuanSebastianrs/TCN_to_LSC/main/Data/Figures/Figure_1.png" width="800"/>
+| Split | Accuracy | Macro F1 |
+| --- | ---: | ---: |
+| Project test set | 0.981 | 0.981 |
 
+These are the project's reported experimental results. Generalization to new signers and recording conditions requires separate evaluation.
 
-### Curvas Precision–Recall
-<img src="https://raw.githubusercontent.com/JuanSebastianrs/TCN_to_LSC/main/Data/Figures/Figure_2.png" width="800"/>
+![Confusion matrix](Data/Figures/Figure_1.png)
 
-### Visualización t-SNE del espacio latente
-<img src="https://raw.githubusercontent.com/JuanSebastianrs/TCN_to_LSC/main/Data/Figures/Figure_3.png" width="800"/>
+[Precision–recall curves](Data/Figures/Figure_2.png) · [Latent-space visualization](Data/Figures/Figure_3.png)
 
-## 🗂️ Estructura del repositorio
+## Run the desktop demo
 
-```plaintext
-.
-├─ capture_samples.py      # Paso 1 – Grabación automática
-├─ normalize_samples.py    # Paso 2 – Interpolación a 15 frames
-├─ create_keypoints.py     # Paso 3 – Extracción de 1 662 key-points
-├─ prepare_dataset.py      # Paso 4 – Split estratificado 70/15/15
-├─ model.py                # Paso 5 – Red TCN + Attention
-├─ training_model.py       # Paso 6 – Entrenamiento
-├─ confusion_matrix.py     # Paso 7 – Métricas y gráficas
-├─ plot_pr_curves.py       # Extensión: curvas PR
-├─ latent_tsne_umap.py     # Extensión: t-SNE / UMAP
-├─ main.py                 # Paso 8 – GUI PyQt5 en tiempo real
-├─ text_to_speech.py       # Paso 9 – Síntesis de voz
-├─ data/                   # Key-points y splits serializados
-├─ frame_actions/          # Frames JPG por gesto
-└─ models/                 # Modelo *.keras* y words.json
+The current launcher uses a Windows-style Qt UI path. Run it from the repository root.
 
-
----
-
-## ⚡ Instalación rápida
-
-```bash
-# 1 Crear y activar entorno virtual
-python -m venv lsc_env
-# Windows ➜ lsc_env\Scripts\activate
-source lsc_env/bin/activate
-
-# 2 Instalar dependencias (CPU-only)
-pip install -r requirements.txt
-#   – TensorFlow 2.16.1
-#   – mediapipe
-#   – opencv-python
-#   – PyQt5
-#   – gTTS, pygame
-#   – seaborn, umap-learn …
-
-# 3 Descargar modelo pre-entrenado
-curl -L -o models/actions_15.keras https://…/actions_15.keras
-````
-
-> El sistema corre a \~25 fps en un portátil i5; **no se requiere GPU**.
-
----
-
-## ▶️ Demo en vivo
-
-```bash
-python main.py
+```powershell
+git clone https://github.com/JuanSebastianrs/TCN_to_LSC.git
+cd TCN_to_LSC
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python run_pipeline.py
 ```
 
-1. Se abre la webcam.
-2. Realice un gesto completo; la aplicación lo detecta automáticamente.
-3. Al acabar, se muestra el texto y se reproduce la voz en castellano.
+A webcam, audio output and a TensorFlow-compatible Python environment are required. The declared dependencies include TensorFlow 2.16.1. Speech synthesis through gTTS requires network access.
 
----
+The trained model and label map are already included:
 
-## 🔬 Entrenamiento desde cero
+- [src/models/actions_15.keras](src/models/actions_15.keras)
+- [src/models/words.json](src/models/words.json)
 
-```bash
-# 1 Capturar datos (≈200 muestras por gesto)
-python capture_samples.py --word hola
+No placeholder model-download URL is needed.
 
-# 2 Normalizar e indexar key-points
-python normalize_samples.py
-python create_keypoints.py
+## Recognized vocabulary
 
-# 3 Generar splits y entrenar
-python prepare_dataset.py
-python training_model.py            # produce models/actions_15.keras
-```
+hola · adiós · bien · mal · más o menos · lo siento · cómo estás · feliz día · familia · papá
 
----
+Examples of the recorded signs are available in [Data/Figures/](Data/Figures/).
 
-## 📈 Evaluación y gráficos adicionales
+## Training and evaluation code
 
-```bash
-python confusion_matrix.py          # matriz + reporte
-python plot_pr_curves.py            # curvas Precision–Recall
-python latent_tsne_umap.py          # mapa t-SNE / UMAP
-```
+| File | Purpose |
+| --- | --- |
+| [src/capture_samples.py](src/capture_samples.py) | Record gesture samples |
+| [src/normalize_samples.py](src/normalize_samples.py) | Normalize video sequences |
+| [src/create_keypoints.py](src/create_keypoints.py) | Extract MediaPipe keypoints |
+| [src/prepare_dataset.py](src/prepare_dataset.py) | Stratified 70/15/15 train/validation/test split |
+| [src/training_model.py](src/training_model.py) | Train the TCN |
+| [src/confusion_matrix.py](src/confusion_matrix.py) | Classification evaluation |
+| [src/plot_pr_curves.py](src/plot_pr_curves.py) | Precision–recall curves |
+| [src/latent_tsne_umap.py](src/latent_tsne_umap.py) | Latent-space exploration |
 
----
+[src/constants.py](src/constants.py) defines the paths used by the scripts. The published sample data is under `Data/`, while training constants refer to folders under `src/`; align those locations before rebuilding the dataset or retraining.
 
-<h2>✨ Componentes clave del sistema</h2>
+## Credits
 
-<table>
-  <thead>
-    <tr>
-      <th>Módulo</th>
-      <th>Tecnología</th>
-      <th>Rol principal</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>🧍‍♂️ Detección / Tracking</td>
-      <td>MediaPipe</td>
-      <td>1 662 landmarks (pose + face + hands)</td>
-    </tr>
-    <tr>
-      <td>⏱️ Normalización temporal</td>
-      <td>OpenCV</td>
-      <td>Interpolación / muestreo a 15 frames</td>
-    </tr>
-    <tr>
-      <td>🧠 Clasificación secuencial</td>
-      <td><strong>TCN + Attention</strong></td>
-      <td>RF 31 frames, 3.5 M parámetros, 98% accuracy</td>
-    </tr>
-    <tr>
-      <td>🖥️ Interfaz gráfica</td>
-      <td>PyQt5</td>
-      <td>Webcam, overlay de keypoints, texto dinámico</td>
-    </tr>
-    <tr>
-      <td>🔊 Síntesis de voz</td>
-      <td>gTTS + pygame</td>
-      <td>Locución en español con baja latencia</td>
-    </tr>
-  </tbody>
-</table>
+Developed by Juan Sebastián Rodríguez Salazar and Johan Santiago Caro Valencia. The capture workflow builds on [ronvidev/modelo_lstm_lsp](https://github.com/ronvidev/modelo_lstm_lsp).
 
+## Resumen en español
 
----
-
-## 📝 Descripción breve
-
-El proyecto integra **detección corporal, seguimiento temporal,
-normalización, red convolucional dilatada con atención escalar y
-síntesis de voz** para ofrecer un traductor LSC-a-Audio portátil,
-de código abierto y totalmente funcional en CPU.
-
----
-
-<h2>🧾 Palabras entrenadas en LSC</h2>
-
-<p>A continuación se muestran las <strong>10 palabras</strong> reconocidas por el sistema, junto a su representación en la <strong>Lengua de Señas Colombiana (LSC)</strong>.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Palabra</th>
-      <th>Imagen en LSC</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>hola</strong></td>
-      <td><img src="https://github.com/JuanSebastianrs/TCN_to_LSC/blob/main/Data/Figures/Hola.png" width="180"/></td>
-    </tr>
-    <tr>
-      <td><strong>adios</strong></td>
-      <td><img src="https://github.com/JuanSebastianrs/TCN_to_LSC/blob/main/Data/Figures/Adios.png" width="180"/></td>
-    </tr>
-    <tr>
-      <td><strong>bien</strong></td>
-      <td><img src="https://github.com/JuanSebastianrs/TCN_to_LSC/blob/main/Data/Figures/Bien.png" width="180"/></td>
-    </tr>
-    <tr>
-      <td><strong>mal</strong></td>
-      <td><img src="https://github.com/JuanSebastianrs/TCN_to_LSC/blob/main/Data/Figures/Mal.png" width="180"/></td>
-    </tr>
-    <tr>
-      <td><strong>mas_o_menos</strong></td>
-      <td><img src="https://github.com/JuanSebastianrs/TCN_to_LSC/blob/main/Data/Figures/MasOMenos.png" width="180"/></td>
-    </tr>
-    <tr>
-      <td><strong>lo_siento</strong></td>
-      <td><img src="https://github.com/JuanSebastianrs/TCN_to_LSC/blob/main/Data/Figures/LoSiento.png" width="180"/></td>
-    </tr>
-    <tr>
-      <td><strong>como_estas</strong></td>
-      <td><img src="https://github.com/JuanSebastianrs/TCN_to_LSC/blob/main/Data/Figures/ComoEstas.png" width="180"/></td>
-    </tr>
-    <tr>
-      <td><strong>feliz_dia</strong></td>
-      <td><img src="https://github.com/JuanSebastianrs/TCN_to_LSC/blob/main/Data/Figures/FelizDia.png" width="180"/></td>
-    </tr>
-    <tr>
-      <td><strong>familia</strong></td>
-      <td><img src="https://github.com/JuanSebastianrs/TCN_to_LSC/blob/main/Data/Figures/Familia.png" width="180"/></td>
-    </tr>
-    <tr>
-      <td><strong>Papa</strong></td>
-      <td><img src="https://github.com/JuanSebastianrs/TCN_to_LSC/blob/main/Data/Figures/Papa.png" width="180"/></td>
-    </tr>
-  </tbody>
-</table>
-
----
-
-## 📚 Créditos
-
-**Autores:**  Juan Sebastian Rodriguez Salazar y Johan Santiago Caro Valencia / Grupo – Visión Computacional, 2025-I
-
-Agradecimientos al repositorio base [@ronvidev](https://github.com/ronvidev/modelo_lstm_lsp)
-por la lógica original de captura.
-
-```
-```
+Prototipo académico que reconoce diez señas aisladas de Lengua de Señas Colombiana y genera voz en español. Combina visión por computador, modelado temporal y una interfaz de escritorio. El alcance del vocabulario y las condiciones de evaluación se documentan explícitamente.
